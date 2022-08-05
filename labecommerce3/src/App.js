@@ -1,23 +1,24 @@
 import logo from './logo.svg';
 import './App.css';
+import Filtros from './components/Filtros';
+import { useState } from 'react';
 
 function App() {
+
+  const [query, setQuery] = useState("")
+  const [minPrice, setMinPrice] = useState (-Infinity)
+  const [maxPrice, setMaxnPrice] = useState (Infinity)
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Filtros
+      query={query}
+      setQuery={setQuery}
+      minPrice = {minPrice}
+      setMinPrice = {setMinPrice}
+      maxPrice = {maxPrice}
+      setMaxnPrice = {setMaxnPrice}/>
     </div>
   );
 }
