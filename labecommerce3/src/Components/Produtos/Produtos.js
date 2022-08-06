@@ -23,7 +23,7 @@ export function Produtos(props) {
     },
     {
       id: 2,
-      nome: " Nave Escalibul 388",
+      nome: "Nave Escalibul 388",
       price: 400899,
       imageUrl:
         "https://services.meteored.com/img/article/spacedream-argentina-naves-cruceros-espaciales-turismo-espacial-spacex-elon-musk-1645029018049_768.jpg",
@@ -162,7 +162,7 @@ export function Produtos(props) {
         "https://ae01.alicdn.com/kf/He86fa8fd2f8b4dea9fd15ff6044c9793R/Brinquedo-de-blocos-de-constru-o-modelo-lua-avi-o-espa-onave-espacial-tijolos-de-constru.jpg_Q90.jpg_.webp",
     },
   ]);
-  const [orderParam, setOrderParam] = useState("");
+  const [orderParam, setOrderParam] = useState("asc");
 
   const [carrinho, setCarrinho] = useState([]);
   const handleInputOrdenacao = (event) => {
