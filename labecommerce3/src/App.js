@@ -13,7 +13,13 @@ function App() {
   const [minPrice, setMinPrice] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
 
-  const [orderParam, setOrderParam] = useState("");
+  const [carrinho, setCarrinho] = useState([]);
+  const [valorTotal, setValorTotal] = useState(0);
+
+  const addCart = (obj) => {
+    setCarrinho([obj, ...carrinho]);
+    console.log(carrinho);
+  };
 
   // const [minPrice, setMinPrice] = useState(-Infinity);
   // const [maxPrice, setMaxPrice] = useState(Infinity);
@@ -45,8 +51,9 @@ function App() {
           MinPrice={setMinPrice}
           maxPrice={maxPrice}
           MaxPrice={setMaxPrice}
+          addCart={addCart}
         />
-        <Carrinho />
+        <Carrinho itensCarrinho={carrinho} />
       </PageContainer>
     </>
   );

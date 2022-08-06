@@ -165,6 +165,8 @@ export function Produtos(props) {
   const [orderParam, setOrderParam] = useState("asc");
 
   const [carrinho, setCarrinho] = useState([]);
+  const [valorTotal, setValorTotal] = useState(0);
+
   const handleInputOrdenacao = (event) => {
     setOrderParam(event.target.value);
   };
@@ -196,6 +198,7 @@ export function Produtos(props) {
             setCarrinho={setCarrinho}
             obj={produto}
             key={produto.id}
+            addCart={props.addCart}
           />
         );
       });

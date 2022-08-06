@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ProdutosContainer = styled.div`
-  min-width: 70vw;
+  width: 66vw;
   min-height: 100vh;
 `;
 

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Card, TextoCard } from "./styles";
 
-function CardProduto({ obj, carrinho, setCarrinho }) {
-  const addCart = (obj) => {
-    setCarrinho([obj, ...carrinho]);
-    console.log(carrinho);
-  };
+function CardProduto({ obj, carrinho, setCarrinho, addCart }) {
+  // const addCart = (obj) => {
+  //   setCarrinho([obj, ...carrinho]);
+  //   console.log(carrinho);
+  // };
 
   return (
     <Card>
