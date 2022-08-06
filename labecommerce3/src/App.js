@@ -1,7 +1,13 @@
-import logo from './logo.svg';
+
 import './App.css';
+import {Produtos} from './Components/Produtos/Produtos.js'
+
+
+
+
 import Filtros from './components/Filtros';
 import { useState } from 'react';
+
 
 function App() {
 
@@ -12,6 +18,10 @@ function App() {
 
   return (
     <div>
+
+      <Produtos></Produtos>
+      
+     
       <Filtros
       query={query}
       setQuery={setQuery}
