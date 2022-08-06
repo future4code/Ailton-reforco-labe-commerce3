@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const CarrinhoContainer = styled.div`
   background-color: #43073c;
-  width: 220px;
+  width: 15vw;
   height: 100%;
   color: white;
   display: flex;

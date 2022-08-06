@@ -1,28 +1,10 @@
 import React, { useState } from "react";
-import styled from "styled-components";
 import CardProduto from "../CardProduto/CardProduto";
+import { Header } from "./styles";
+import { GrupoCard } from "./styles";
+import { ProdutosContainer } from "./styles";
 
-const Header = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  p,
-  label {
-    font-weight: bolder;
-    margin: 20px;
-  }
-`;
-const GrupoCard = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  /* grid-template-columns: 1fr 1fr 1fr; */
-  gap: 20px;
-  /* margin-top: 10px;
-  column-gap: 10px; */
-`;
-
-export function Produtos() {
+export function Produtos(props) {
   // const Ordenados = produtos && produtos.sort((a,b) => {
   //     if (this.state.ordenando === "Crescente") {
   //         return a.price - b.price
@@ -180,35 +162,63 @@ export function Produtos() {
         "https://ae01.alicdn.com/kf/He86fa8fd2f8b4dea9fd15ff6044c9793R/Brinquedo-de-blocos-de-constru-o-modelo-lua-avi-o-espa-onave-espacial-tijolos-de-constru.jpg_Q90.jpg_.webp",
     },
   ]);
+  const [orderParam, setOrderParam] = useState("");
+
   const [carrinho, setCarrinho] = useState([]);
+  const handleInputOrdenacao = (event) => {
+    setOrderParam(event.target.value);
+  };
 
   const produtosMap =
     produtos &&
-    produtos.map((produto) => {
-      return (
-        <CardProduto
-          carrinho={carrinho}
-          setCarrinho={setCarrinho}
-          obj={produto}
-          key={produto.id}
-        />
-      );
-    });
+    produtos
+      .filter((produto) => {
+        return produto.nome.toLowerCase().includes(props.query.toLowerCase());
+      })
+      .filter((produto) => {
+        return produto.price >= props.minPrice || props.minPrice === "";
+      })
+      .filter((produto) => {
+        return produto.price <= props.maxPrice || props.maxPrice === "";
+      })
 
+      .sort((a, b) =>
+        orderParam === "" || (orderParam === "asc" && a.nome > b.nome) ? 1 : -1
+      )
+      .sort((a, b) =>
+        orderParam === "" || (orderParam === "desc" && a.nome > b.nome) ? -1 : 1
+      )
+
+      .map((produto) => {
+        return (
+          <CardProduto
+            carrinho={carrinho}
+            setCarrinho={setCarrinho}
+            obj={produto}
+            key={produto.id}
+          />
+        );
+      });
   return (
-    <div>
+    <ProdutosContainer>
       <Header>
         <p>Quantidade de produtos: {produtos.length}</p>
-        <label>
-          Ordenação: <></>
-          <select>
-            <option value={"Crescente"}>Crescente</option>
-            <option value={"Decrescente"}>Decrescente</option>
+        <div className="ordenacao">
+          <p>
+            Ordenação: <> </>
+          </p>
+          <select
+            name=""
+            id=""
+            value={orderParam}
+            onChange={handleInputOrdenacao}
+          >
+            <option value="asc">Crescente</option>
+            <option value="desc">Decrescente</option>
           </select>
-        </label>
+        </div>
       </Header>
-
       <GrupoCard>{produtosMap}</GrupoCard>
-    </div>
+    </ProdutosContainer>
   );
 }

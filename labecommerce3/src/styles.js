@@ -19,4 +19,5 @@ export const HeaderPage = styled.div`
 export const PageContainer = styled.div`
   background-color: #f2f2f2;
   display: flex;
+  max-width: 100vw;
 `;

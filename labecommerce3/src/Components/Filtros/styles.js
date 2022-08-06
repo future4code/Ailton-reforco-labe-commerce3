@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const FiltrosContainer = styled.div`
   background-color: #43073c;
   color: white;
-  width: 220px;
+  width: 15vw;
   display: flex;
   flex-direction: column;
   text-align: center;

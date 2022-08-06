@@ -10,11 +10,14 @@ import Carrinho from "./components/Carrinho/Carrinho";
 
 function App() {
   const [query, setQuery] = useState("");
-  const [minPrice, setMinPrice] = useState(-Infinity);
-  const [maxPrice, setMaxPrice] = useState(Infinity);
-  // adgfsg
+  const [minPrice, setMinPrice] = useState("");
+  const [maxPrice, setMaxPrice] = useState("");
 
-  // dsabb
+  const [orderParam, setOrderParam] = useState("");
+
+  // const [minPrice, setMinPrice] = useState(-Infinity);
+  // const [maxPrice, setMaxPrice] = useState(Infinity);
+
   return (
     <>
       <GlobalStyle />
@@ -35,7 +38,14 @@ function App() {
           maxPrice={maxPrice}
           setMaxPrice={setMaxPrice}
         />
-        <Produtos />
+        <Produtos
+          query={query}
+          setQuery={setQuery}
+          minPrice={minPrice}
+          MinPrice={setMinPrice}
+          maxPrice={maxPrice}
+          MaxPrice={setMaxPrice}
+        />
         <Carrinho />
       </PageContainer>
     </>
