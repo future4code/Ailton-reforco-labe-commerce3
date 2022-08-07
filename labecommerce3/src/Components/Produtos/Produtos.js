@@ -5,14 +5,6 @@ import { GrupoCard } from "./styles";
 import { ProdutosContainer } from "./styles";
 
 export function Produtos(props) {
-  // const Ordenados = produtos && produtos.sort((a,b) => {
-  //     if (this.state.ordenando === "Crescente") {
-  //         return a.price - b.price
-  //     } else {
-  //         return b.price - a.price
-  //     }
-  // })
-
   const [produtos, setProdutos] = useState([
     {
       id: 1,

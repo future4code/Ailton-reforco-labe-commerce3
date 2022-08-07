@@ -5,12 +5,11 @@ export const Card = styled.div`
   flex-direction: column;
   width: 240px;
   height: 370px;
-  justify-content: center;
+  justify-content: space-around;
   background-color: #e6e6e6;
   box-shadow: 4px 4px #090d1f;
   font-size: 15px;
   text-align: center;
-
   img {
     width: 220px;
     height: 220px;
@@ -31,7 +30,9 @@ export const TextoCard = styled.div`
     width: 70%;
     background-color: #c7c7c7;
     cursor: pointer;
-    /* background-color: #090d1f;
-    color: white; */
+    color: white;
+    background-color: #090d1f;
+    border-radius: 5px;
+    padding: 2px;
   }
 `;
