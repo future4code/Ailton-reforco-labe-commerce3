@@ -3,17 +3,16 @@ import styled from "styled-components";
 export const Card = styled.div`
   display: flex;
   flex-direction: column;
-  width: 260px;
-  height: 390px;
-  justify-content: center;
+  width: 240px;
+  height: 370px;
+  justify-content: space-around;
   background-color: #e6e6e6;
   box-shadow: 4px 4px #090d1f;
   font-size: 15px;
   text-align: center;
-
   img {
-    width: 240px;
-    height: 240px;
+    width: 220px;
+    height: 220px;
     margin: 0 auto;
   }
 `;
@@ -30,7 +29,10 @@ export const TextoCard = styled.div`
     align-self: center;
     width: 70%;
     background-color: #c7c7c7;
-    /* background-color: #090d1f;
-    color: white; */
+    cursor: pointer;
+    color: white;
+    background-color: #090d1f;
+    border-radius: 5px;
+    padding: 2px;
   }
 `;

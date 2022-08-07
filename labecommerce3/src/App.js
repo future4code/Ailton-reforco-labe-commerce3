@@ -5,16 +5,22 @@ import { PageContainer } from "./styles.js";
 import { HeaderPage } from "./styles.js";
 import Filtros from "./components/Filtros/Filtros";
 import { useState } from "react";
-import CardProduto from "./components/CardProduto/CardProduto";
 import Carrinho from "./components/Carrinho/Carrinho";
 
 function App() {
   const [query, setQuery] = useState("");
-  const [minPrice, setMinPrice] = useState(-Infinity);
-  const [maxPrice, setMaxPrice] = useState(Infinity);
-  // adgfsg
+  const [minPrice, setMinPrice] = useState("");
+  const [maxPrice, setMaxPrice] = useState("");
+  const [carrinho, setCarrinho] = useState([]);
+  const [valorTotal, setValorTotal] = useState("");
 
-  // dsabb
+  const addCart = (obj) => {
+    setCarrinho([obj, ...carrinho]);
+  };
+
+  // const [minPrice, setMinPrice] = useState(-Infinity);
+  // const [maxPrice, setMaxPrice] = useState(Infinity);
+
   return (
     <>
       <GlobalStyle />
@@ -35,8 +41,21 @@ function App() {
           maxPrice={maxPrice}
           setMaxPrice={setMaxPrice}
         />
-        <Produtos />
-        <Carrinho />
+        <Produtos
+          query={query}
+          setQuery={setQuery}
+          minPrice={minPrice}
+          MinPrice={setMinPrice}
+          maxPrice={maxPrice}
+          MaxPrice={setMaxPrice}
+          addCart={addCart}
+        />
+        <Carrinho
+          carrinho={carrinho}
+          setCarrinho={setCarrinho}
+          valorTotal={valorTotal}
+          setValorTotal={setValorTotal}
+        />
       </PageContainer>
     </>
   );
